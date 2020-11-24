@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Group_33" data-name="Group 33" transform="translate(-231 -828)">
+    <rect id="Rectangle_31" data-name="Rectangle 31" width="24" height="24" transform="translate(231 828)" fill="none"/>
+    <g id="grid" transform="translate(231 828)">
+      <rect id="Rectangle_27" data-name="Rectangle 27" width="7" height="7" transform="translate(3 3)" fill="none" stroke="#f9474e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <rect id="Rectangle_28" data-name="Rectangle 28" width="7" height="7" transform="translate(14 3)" fill="none" stroke="#f9474e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <rect id="Rectangle_29" data-name="Rectangle 29" width="7" height="7" transform="translate(14 14)" fill="none" stroke="#f9474e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <rect id="Rectangle_30" data-name="Rectangle 30" width="7" height="7" transform="translate(3 14)" fill="none" stroke="#f9474e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+  </g>
+</svg>
