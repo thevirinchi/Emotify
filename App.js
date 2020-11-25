@@ -5,6 +5,7 @@ import * as Font from 'expo-font'
 import { AppLoading } from 'expo'
 
 import OnBoardingNavigator from './navigation/OnBoardingNavigator'
+import BottomNavigator from './navigation/BottomNavigator'
 
 let fonts = {
 	'roboto-black' : require('./assets/fonts/Roboto-Black.ttf'),
@@ -19,6 +20,7 @@ let fonts = {
 export default function App() {
 
 	const [dataLoaded, toggleDataLoaded] = useState(false)
+	const [UserLoggedIn, ToggleUserLoggedIn] = useState(false)
 
 	const loadFonts = async() => {
 		await Font.loadAsync(fonts)
@@ -32,7 +34,7 @@ export default function App() {
 	return (
 		(dataLoaded
 			?
-			<OnBoardingNavigator/>
+			(UserLoggedIn? <OnBoardingNavigator/> : <BottomNavigator/>)
 			:
 			<AppLoading/>)
 	);
