@@ -33,7 +33,7 @@ const OnBoarding2 = props => {
 					<View style={styles.marginVerticalM}><PageIndicatorActive/></View>
 					<View><PageIndicatorInactive/></View>
 				</View>
-				<TouchableNativeFeedback style={{width: "100%"}}>
+				<TouchableNativeFeedback style={{width: "100%"}} onPress={()=>{props.navigation.navigate('onBoardingScreen3')}}>
 					<Button lvl={1} text="Next"/>
 				</TouchableNativeFeedback>
 			</View>
