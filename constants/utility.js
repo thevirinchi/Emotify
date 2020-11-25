@@ -2,7 +2,8 @@ export const Margin = {
 	xs: 4,
 	s: 8,
 	m: 12,
-	l: 20
+	l: 20,
+	xl: 24
 }
 
 export const Padding = {

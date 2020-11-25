@@ -4,6 +4,8 @@ import { View } from 'react-native';
 import * as Font from 'expo-font'
 import { AppLoading } from 'expo'
 
+import OnBoardingNavigator from './navigation/OnBoardingNavigator'
+
 let fonts = {
 	'roboto-black' : require('./assets/fonts/Roboto-Black.ttf'),
 	'roboto-bold' : require('./assets/fonts/Roboto-Bold.ttf'),
@@ -30,7 +32,7 @@ export default function App() {
 	return (
 		(dataLoaded
 			?
-			<View></View>
+			<OnBoardingNavigator/>
 			:
 			<AppLoading/>)
 	);

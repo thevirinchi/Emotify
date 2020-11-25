@@ -3,6 +3,7 @@ export const Colors = {
 	gray: '#a0a0a0',
 	black: '#101010',
 	accent: '#F9474E',
+	accent2: '#1957EA',
 
 	emot1: '#FF5252',
 	emot2: '#536dfe',

@@ -4,9 +4,9 @@
 		"slug": "emotify",
 		"version": "1.0.0",
 		"orientation": "portrait",
-		"icon": "./assets/images/logoCube.svg",
+		"icon": "./assets/images/logoCube.png",
 		"splash": {
-			"image": "./assets/images/logoCube.svg",
+			"image": "./assets/images/logoCube.png",
 			"resizeMode": "contain",
 			"backgroundColor": "#101010"
 		},
@@ -19,12 +19,28 @@
 		},
 		"android": {
 			"adaptiveIcon": {
-				"foregroundImage": "./assets/images/logoCube.svg",
+				"foregroundImage": "./assets/images/logoCube.png",
 				"backgroundColor": "#101010"
 			}
 		},
 		"web": {
-			"favicon": "./assets/images/logoRing.svg"
+			"favicon": "./assets/images/logoRing.png"
+		},
+		"packagerOpts": {
+			"config": "metro.config.js",
+			"sourceExts": [
+				"expo.ts",
+				"expo.tsx",
+				"expo.js",
+				"expo.jsx",
+				"ts",
+				"tsx",
+				"js",
+				"jsx",
+				"json",
+				"wasm",
+				"svg"
+			]
 		}
 	}
 }
