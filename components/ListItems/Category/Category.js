@@ -22,7 +22,13 @@ const CategoryItem = props => {
 	}
 
 	return (
-		<View style={{ backgroundColor: props.backgroundColor, borderRadius: 16, margin: Margin.s, padding: Padding.m, elevation: 4, width: Dimensions.get("screen").width / 5, height: Dimensions.get("screen").width / 5, alignItems: "center", justifyContent: "center" }}>
+		<View style={
+				props.size === "big"
+				?
+					{ backgroundColor: props.backgroundColor, borderRadius: 16, margin: Margin.l, padding: Padding.m, elevation: 4, width: Dimensions.get("screen").width / 5, height: Dimensions.get("screen").width / 3, alignItems: "center", justifyContent: "center", flex: 1 }
+				:
+				{ backgroundColor: props.backgroundColor, borderRadius: 16, margin: Margin.s, padding: Padding.m, elevation: 4, width: Dimensions.get("screen").width / 5, height: Dimensions.get("screen").width / 5, alignItems: "center", justifyContent: "center", flex: 1 }
+			}>
 			<Icon />
 		</View>
 	)
