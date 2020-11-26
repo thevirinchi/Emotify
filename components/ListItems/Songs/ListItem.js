@@ -8,22 +8,22 @@ import { TouchableNativeFeedback } from 'react-native-gesture-handler'
 import { Colors } from '../../../constants/colors'
 
 
-const MostPlayed = props => {
+const SongListItem = props => {
 
 	const Icon = () => {
-		switch (props.id) {
-			case 's1':
+		switch (props.icon) {
+			case '1':
 				return <Image source={require('../../../assets/images/ab67616d00004851ff8c985ecb3b7c5f847be357.png')} style={styles.icon} />
-			case 's2':
+			case '2':
 				return <Image source={require('../../../assets/images/ab67616d000048519ca0c952f130e28025209cf0.png')} style={styles.icon} />
-			case 's3':
+			case '3':
 				return <Image source={require('../../../assets/images/ab67616d0000485187d15f78ec75621d40028baf.png')} style={styles.icon} />
-			case 's4':
+			case '4':
 				return <Image source={require('../../../assets/images/ab67616d00004851755995e9ff2b1b0c753f5eb8.png')} style={styles.icon} />
-			case 's5':
+			case '5':
 				return <Image source={require('../../../assets/images/ab67616d000048518863bc11d2aa12b54f5aeb36.png')} style={styles.icon} />
 			default:
-				break;
+				return null
 		}
 	}
 
@@ -51,4 +51,4 @@ const styles = StyleSheet.create({
 	icon: { resizeMode: "contain", width: 40, height: 40, marginRight: Margin.s, borderRadius: 2 }
 })
 
-export default MostPlayed
+export default SongListItem
