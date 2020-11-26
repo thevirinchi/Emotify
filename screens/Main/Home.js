@@ -7,7 +7,7 @@ import MostPlayedItem from '../../components/ListItems/Songs/MostPlayed'
 import Heading from '../../components/Typo/Heading'
 import Body from '../../components/Typo/Body'
 
-import { Categories } from '../../data/categories'
+import { CategoriesData } from '../../data/categories'
 import { MostPlayed } from '../../data/MostPlayed'
 
 import { Colors } from '../../constants/colors'
@@ -50,7 +50,7 @@ const Home = props => {
 					<Heading lvl={3} text="Moods" style={{ marginVertical: 0 }} />
 					<Body lvl={2} text="View All" style={{ marginVertical: 0 }} />
 				</View>
-				<FlatList numColumns={4} renderItem={renderCategoryItem} data={Categories} keyExtractor={item => item.id} backgroundColor={Colors.white} width={"100%"} />
+				<FlatList numColumns={4} renderItem={renderCategoryItem} data={CategoriesData} keyExtractor={item => item.id} backgroundColor={Colors.white} width={"100%"} />
 			</View>
 			<View style={{ marginVertical: Margin.xl }}>
 				<View style={styles.partHeaderContainer}>
