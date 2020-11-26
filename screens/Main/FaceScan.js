@@ -18,11 +18,9 @@ const FaceScan = props => {
 
 	const [data, setData] = useState(SuggestionData)
 
-	useEffect(()=>{
-		setData(SuggestionData.slice(0,suggestionCount))
+	useEffect(() => {
+		setData(SuggestionData.slice(0, suggestionCount))
 	}, [suggestionCount])
-
-	console.log({data})
 
 	const renderSuggestionItem = (itemData) => {
 		return (
@@ -37,7 +35,7 @@ const FaceScan = props => {
 	}
 
 	const suggestionCountHandler = () => {
-		if(suggestionCount === 5)
+		if (suggestionCount === 5)
 			toggleSuggestionCount(10)
 		else
 			toggleSuggestionCount(5)
@@ -47,12 +45,12 @@ const FaceScan = props => {
 		<ScrollView style={styles.root}>
 			<View style={styles.headerContainer}>
 				<Heading lvl={1} text="Emotify" />
-				<Display text="Let's keep that smile wide!" containerStyle={{width: "100%"}}/>
-				<Image source={require('../../assets/images/emotes/grinning.png')} style={{marginVertical: Margin.xl}}/>
-				<Heading lvl={3} text="Suggestions" containerStyle={{width:"100%", marginBottom: Margin.m}}/>
+				<Display text="Let's keep that smile wide!" containerStyle={{ width: "100%" }} />
+				<Image source={require('../../assets/images/emotes/grinning.png')} style={{ marginVertical: Margin.xl }} />
+				<Heading lvl={3} text="Suggestions" containerStyle={{ width: "100%", marginBottom: Margin.m }} />
 				<FlatList numColumns={1} renderItem={renderSuggestionItem} data={data} keyExtractor={item => item.id} width={"100%"} />
-				<TouchableNativeFeedback onPress={suggestionCountHandler} style={{marginBottom: Margin.l}}>
-					<Button lvl={2} text={suggestionCount===5?"Show More":"Show Less"} style={{backgroundColor: Colors.emot7, paddingVertical: Padding.s}} containerStyle={{marginTop: Margin.m}}/>
+				<TouchableNativeFeedback onPress={suggestionCountHandler} style={{ marginBottom: Margin.l }}>
+					<Button lvl={2} text={suggestionCount === 5 ? "Show More" : "Show Less"} style={{ backgroundColor: Colors.emot7, paddingVertical: Padding.s }} containerStyle={{ marginTop: Margin.m }} />
 				</TouchableNativeFeedback>
 			</View>
 		</ScrollView>
