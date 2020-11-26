@@ -46,7 +46,7 @@ const SongListItem = props => {
 }
 
 const styles = StyleSheet.create({
-	container: { marginBottom: Margin.m, flexDirection: "row", justifyContent: "space-between", alignItems: "center", backgroundColor: Colors.white },
+	container: { marginBottom: Margin.m, flexDirection: "row", justifyContent: "space-between", alignItems: "center" },
 	detailsContainer: { flexDirection: "row", alignItems: "center", justifyContent: "center" },
 	icon: { resizeMode: "contain", width: 40, height: 40, marginRight: Margin.s, borderRadius: 2 }
 })
