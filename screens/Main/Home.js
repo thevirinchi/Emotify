@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, Dimensions, ScrollView } from 'react-nat
 import { FlatList, TouchableNativeFeedback } from 'react-native-gesture-handler'
 
 import CategoryItem from '../../components/ListItems/Category/Category'
-import MostPlayedItem from '../../components/ListItems/Songs/MostPlayed'
+import SongListItem from '../../components/ListItems/Songs/ListItem'
 import Heading from '../../components/Typo/Heading'
 import Body from '../../components/Typo/Body'
 
@@ -30,7 +30,7 @@ const Home = props => {
 
 	const renderMostPlayedItem = (itemData) => {
 		return (
-			<MostPlayedItem
+			<SongListItem
 				onPressHandler={() => { console.log({ itemData }) }}
 				id={itemData.item.id}
 				icon={itemData.item.icon}
