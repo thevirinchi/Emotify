@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet, Image, Dimensions } from 'react-native'
+import { View, Text, StyleSheet, Image, Dimensions, Alert } from 'react-native'
 import auth from '@react-native-firebase/auth';
 
 import Heading from '../../components/Typo/Heading'
@@ -28,12 +28,12 @@ const OnBoarding3 = props => {
 		switch (id) {
 			case 'email':
 				toggleValidEmail(isValid)
-				if(isValid)
+				if (isValid)
 					setEmail(value)
 				break;
 			case 'password':
 				toggleValidPassword(isValid)
-				if(isValid)
+				if (isValid)
 					setPassword(value)
 				break;
 			default:
@@ -42,16 +42,14 @@ const OnBoarding3 = props => {
 	}
 
 	const onLoginSuccess = () => {
-		console.log("Done")
-		//this.props.navigation.navigate('App');
-	} 
+		props.navigation.navigate('BottomNavigator')
+	}
 	const onLoginFailure = (errorMessage) => {
-		console.log({errorMessage})
-		//this.setState({ error: errorMessage, loading: false });
+		Alert.alert('There was an error', errorMessage, [{ text: 'Okay' }])
 	}
 
-	const loginHandler = async() => {
-		if(validEmail && validPassword){
+	const loginHandler = async () => {
+		if (validEmail && validPassword) {
 			await firebase
 				.auth()
 				.signInWithEmailAndPassword(email, password)
@@ -68,8 +66,8 @@ const OnBoarding3 = props => {
 		}
 	}
 
-	const signInHandler = async() => {
-		if(validPassword && validEmail){
+	const signInHandler = async () => {
+		if (validPassword && validEmail) {
 			await firebase
 				.auth()
 				.createUserWithEmailAndPassword(email, password)
