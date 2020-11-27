@@ -4,8 +4,14 @@ import { View } from 'react-native';
 import * as Font from 'expo-font'
 import { AppLoading } from 'expo'
 
-import OnBoardingNavigator from './navigation/OnBoardingNavigator'
-import BottomNavigator from './navigation/BottomNavigator'
+import * as firebase from 'firebase';
+import { firebaseConfig } from './config/firebase.js';
+
+// import OnBoardingNavigator from './navigation/OnBoardingNavigator'
+// import BottomNavigator from './navigation/BottomNavigator'
+import MainNavigator from './navigation/MainNavigator'
+
+firebase.initializeApp(firebaseConfig);
 
 let fonts = {
 	'roboto-black' : require('./assets/fonts/Roboto-Black.ttf'),
@@ -34,7 +40,8 @@ export default function App() {
 	return (
 		(dataLoaded
 			?
-			(UserLoggedIn? <OnBoardingNavigator/> : <BottomNavigator/>)
+			// (UserLoggedIn? <OnBoardingNavigator/> : <BottomNavigator/>)
+			<MainNavigator/>
 			:
 			<AppLoading/>)
 	);
