@@ -18,7 +18,7 @@ const Home = props => {
 	const renderCategoryItem = (itemData) => {
 		return (
 			<CategoryItem
-				onPressHandler={() => { console.log({ itemData }) }}
+				onPressHandler={() => { props.navigation.navigate('CategorySongsScreen', {id: itemData.item.id})  }}
 				id={itemData.item.id}
 				icon={itemData.item.icon}
 				backgroundColor={itemData.item.bgColor}
@@ -31,7 +31,7 @@ const Home = props => {
 	const renderMostPlayedItem = (itemData) => {
 		return (
 			<SongListItem
-				onPressHandler={() => { console.log({ itemData }) }}
+				onPressHandler={() => { console.log( itemData.item.id ) }}
 				id={itemData.item.id}
 				icon={itemData.item.icon}
 				title={itemData.item.title}
@@ -48,7 +48,9 @@ const Home = props => {
 			<View>
 				<View style={styles.partHeaderContainer}>
 					<Heading lvl={3} text="Moods" style={{ marginVertical: 0 }} />
-					<Body lvl={2} text="View All" style={{ marginVertical: 0 }} />
+					<TouchableNativeFeedback onPress={()=>{props.navigation.navigate('CategoriesScreen')}}>
+						<Body lvl={2} text="View All" style={{ marginVertical: 0 }} />
+					</TouchableNativeFeedback>
 				</View>
 				<FlatList numColumns={4} renderItem={renderCategoryItem} data={CategoriesData} keyExtractor={item => item.id} backgroundColor={Colors.white} width={"100%"} />
 			</View>
@@ -73,7 +75,7 @@ const Home = props => {
 }
 
 const styles = StyleSheet.create({
-	root: { paddingHorizontal: Padding.l, paddingVertical: Padding.m },
+	root: { paddingHorizontal: Padding.l, paddingVertical: Padding.m, backgroundColor: Colors.white },
 	headerContainer: { width: "100%", justifyContent: "center", alignItems: "center" },
 	partHeaderContainer: { flexDirection: "row", justifyContent: "space-between", alignItems: "baseline" },
 	bannerContainer: { width: "100%", height: 200 },

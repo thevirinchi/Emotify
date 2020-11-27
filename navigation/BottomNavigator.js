@@ -8,6 +8,7 @@ import Categories from '../screens/Main/Categories'
 import FaceScan from '../screens/Main/FaceScan'
 import History from '../screens/Main/History'
 import User from '../screens/Main/User'
+import CategoriesNavigator from './CategoriesNavigator'
 
 import { Colors } from '../constants/colors'
 import { Ionicons } from '@expo/vector-icons'
@@ -26,7 +27,7 @@ const BottomTabNavigator = createBottomTabNavigator({
 		}
 	},
 	CategoriesScreen: {
-		screen: Categories,
+		screen: CategoriesNavigator,
 		navigationOptions: {
 			tabBarIcon: (tabInfo) => {
 				return <Ionicons name="ios-keypad" size={24} color={tabInfo.tintColor} />

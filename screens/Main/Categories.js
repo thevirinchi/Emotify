@@ -14,7 +14,7 @@ const Categories = props => {
 	const renderCategoryItem = (itemData) => {
 		return (
 			<CategoryItem
-				onPressHandler={() => { console.log({ itemData }) }}
+				onPressHandler={() => { props.navigation.navigate('CategorySongsScreen', {id: itemData.item.id})  }}
 				id={itemData.item.id}
 				icon={itemData.item.icon}
 				backgroundColor={itemData.item.bgColor}
@@ -36,7 +36,7 @@ const Categories = props => {
 }
 
 const styles = StyleSheet.create({
-	root: { paddingHorizontal: Padding.l, paddingVertical: Padding.m },
+	root: { paddingHorizontal: Padding.l, paddingVertical: Padding.m, backgroundColor: Colors.white, flex: 1 },
 	headerContainer: { width: "100%", justifyContent: "center", alignItems: "center" },
 })
 

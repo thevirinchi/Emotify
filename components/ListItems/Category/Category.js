@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet, Image, Dimensions } from 'react-native'
+import { TouchableHighlight, TouchableNativeFeedback } from 'react-native-gesture-handler'
 import { Margin, Padding } from '../../../constants/utility'
 
 const CategoryItem = props => {
@@ -23,13 +24,17 @@ const CategoryItem = props => {
 
 	return (
 		<View style={
-				props.size === "big"
-				?
-					{ backgroundColor: props.backgroundColor, borderRadius: 16, margin: Margin.l, padding: Padding.m, elevation: 4, width: Dimensions.get("screen").width / 5, height: Dimensions.get("screen").width / 3, alignItems: "center", justifyContent: "center", flex: 1 }
-				:
-				{ backgroundColor: props.backgroundColor, borderRadius: 16, margin: Margin.s, padding: Padding.m, elevation: 4, width: Dimensions.get("screen").width / 5, height: Dimensions.get("screen").width / 5, alignItems: "center", justifyContent: "center", flex: 1 }
-			}>
+			props.size === "big"
+			?
+				{ backgroundColor: props.backgroundColor, borderRadius: 16, margin: Margin.l, elevation: 4, width: Dimensions.get("screen").width / 5, height: Dimensions.get("screen").width / 3, flex: 1 }
+			:
+			{ backgroundColor: props.backgroundColor, borderRadius: 16, margin: Margin.s, elevation: 4, width: Dimensions.get("screen").width / 5, height: Dimensions.get("screen").width / 5, flex: 1 }
+		}>
+		<TouchableNativeFeedback onPress={props.onPressHandler}>
+		<View  style={{ alignItems: "center", justifyContent: "center", height: "100%", width: "100%"}}>
 			<Icon />
+		</View>
+		</TouchableNativeFeedback>
 		</View>
 	)
 }
