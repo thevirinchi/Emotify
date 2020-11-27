@@ -130,3 +130,7 @@ package-lock.json
 .expo-shared/*
 .expo-shared
 .expo-shared/assets.json
+config/defaultConfig.js
+google-services.json
+my-key.keystore
+config/firebase.js

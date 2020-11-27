@@ -21,7 +21,9 @@
 			"adaptiveIcon": {
 				"foregroundImage": "./assets/images/logoCube.png",
 				"backgroundColor": "#101010"
-			}
+			},
+			"package": "com.z3t4z00k.emotify",
+			"googleServicesFile": "./google-services.json"
 		},
 		"web": {
 			"favicon": "./assets/images/logoRing.png"
