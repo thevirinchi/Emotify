@@ -133,3 +133,4 @@ package-lock.json
 config/defaultConfig.js
 google-services.json
 my-key.keystore
+config/firebase.js
