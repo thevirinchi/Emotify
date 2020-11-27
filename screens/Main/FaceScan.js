@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, StyleSheet, Image, Dimensions, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, Image, Dimensions, ScrollView, Alert } from 'react-native'
 import { FlatList, TouchableNativeFeedback } from 'react-native-gesture-handler'
+import * as ImagePicker from 'expo-image-picker'
+import * as Permissions from 'expo-permissions'
 
 import Heading from '../../components/Typo/Heading'
 import Display from '../../components/Typo/Display'
@@ -14,13 +16,39 @@ import Button from '../../components/Button/Button'
 
 const FaceScan = props => {
 
-	const [suggestionCount, toggleSuggestionCount] = useState(5)
+	const verifyPermissions = async() => {
+		const result = await Permissions.askAsync(Permissions.CAMERA, Permissions.CAMERA_ROLL)
+		if(result.status !== 'granted'){
+			Alert.alert("Insufficient permissions!", "You need to grant camera permissions to use this app.", [{text: 'Okay'}])
+			return false
+		}
+		return true
+	}
 
+	const [suggestionCount, toggleSuggestionCount] = useState(5)
+	const [scanMode, toggleScanMode] = useState(true)
 	const [data, setData] = useState(SuggestionData)
 
 	useEffect(() => {
 		setData(SuggestionData.slice(0, suggestionCount))
 	}, [suggestionCount])
+
+	useEffect(async()=>{
+		if(scanMode){
+			const hasPermission = await verifyPermissions()
+			if(hasPermission){
+				const image = await ImagePicker.launchCameraAsync({
+					allowsEditing: true,
+					aspect: [1, 1],
+					quality: 0.5
+				})
+				if(image.cancelled === true)
+					props.navigation.navigate('HomeScreen')
+				else
+					console.log(image.uri)
+			}
+		}
+	}, [scanMode])
 
 	const renderSuggestionItem = (itemData) => {
 		return (
