@@ -54,17 +54,18 @@ const BottomTabNavigator = createBottomTabNavigator({
 			tabBarLabel: "History",
 			tabBarColor: Colors.accent
 		}
-	},
-	UserScreen: {
-		screen: User,
-		navigationOptions: {
-			tabBarIcon: (tabInfo) => {
-				return <Ionicons name="md-person" size={24} color={tabInfo.tintColor} />
-			},
-			tabBarLabel: "Profile",
-			tabBarColor: Colors.accent
-		}
 	}
+	// },
+	// UserScreen: {
+	// 	screen: User,
+	// 	navigationOptions: {
+	// 		tabBarIcon: (tabInfo) => {
+	// 			return <Ionicons name="md-person" size={24} color={tabInfo.tintColor} />
+	// 		},
+	// 		tabBarLabel: "Profile",
+	// 		tabBarColor: Colors.accent
+	// 	}
+	// }
 },
 {
 	tabBarOptions: {
