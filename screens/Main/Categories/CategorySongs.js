@@ -8,13 +8,13 @@ import { Colors } from '../../../constants/colors'
 import { Margin, Padding } from '../../../constants/utility'
 
 import { CategoriesData } from '../../../data/categories'
-import { SuggestionData } from '../../../data/SuggestionData'
+import { SongsData } from '../../../data/Songs'
 
 const CategorySongs = props => {
 
 	const id = props.navigation.getParam('id')
 	const category = CategoriesData.find(category => category.id === id)
-	const songs = SuggestionData
+	const songs = SongsData.filter(song => song.catId === id)
 
 	const renderSongItem = (itemData) => {
 		return (
