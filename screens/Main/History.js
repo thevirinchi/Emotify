@@ -8,7 +8,7 @@ import SongListItem from '../../components/ListItems/Songs/ListItem'
 import { Colors } from '../../constants/colors'
 import { Margin, Padding } from '../../constants/utility'
 
-import { HistoryData } from '../../data/History'
+import { SongsData } from '../../data/Songs'
 
 const History = props => {
 
@@ -29,7 +29,7 @@ const History = props => {
 			<View style={styles.headerContainer}>
 				<Heading lvl={1} text="Emotify" />
 			</View>
-			<FlatList numColumns={1} renderItem={renderHistoryItem} data={HistoryData} keyExtractor={item => item.id} backgroundColor={Colors.white} width={"100%"} />
+			<FlatList numColumns={1} renderItem={renderHistoryItem} data={SongsData} keyExtractor={item => item.id} backgroundColor={Colors.white} width={"100%"} />
 		</View>
 	)
 }
