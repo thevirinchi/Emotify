@@ -22,6 +22,9 @@ app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+require('./routes/test/emotion')(app)
+require('./routes/emotion/emotion')(app)
+
 app.get('/status', (req, res) => res.send('Working!'));
 
 /*  PRODUCTION  */
