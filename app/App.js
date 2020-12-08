@@ -7,9 +7,14 @@ import { AppLoading } from 'expo'
 import * as firebase from 'firebase';
 import { firebaseConfig } from './config/firebase.js';
 
-// import OnBoardingNavigator from './navigation/OnBoardingNavigator'
-// import BottomNavigator from './navigation/BottomNavigator'
+import { createStore, combineReducers, compose } from 'redux'
+import { Provider, useDispatch, useSelector } from 'react-redux'
+
+import loadingReducer from './store/reducer/spinner'
+
 import MainNavigator from './navigation/MainNavigator'
+
+import Overlay from './components/Spinner/Overlay'
 
 firebase.initializeApp(firebaseConfig);
 
@@ -24,6 +29,12 @@ let fonts = {
 }
 
 export default function App() {
+
+	const rootReducer = combineReducers({
+		loading: loadingReducer
+	})
+
+	const store = createStore(rootReducer)
 
 	const [dataLoaded, toggleDataLoaded] = useState(false)
 	const [UserLoggedIn, ToggleUserLoggedIn] = useState(false)
@@ -41,7 +52,10 @@ export default function App() {
 		(dataLoaded
 			?
 			// (UserLoggedIn? <OnBoardingNavigator/> : <BottomNavigator/>)
-			<MainNavigator/>
+			<Provider store={store}>
+				<Overlay/>
+				<MainNavigator/>
+			</Provider>
 			:
 			<AppLoading/>)
 	);
