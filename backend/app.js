@@ -1,12 +1,14 @@
 require('dotenv').config()
 
-const https = require('https');
-const fs = require('fs');
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
+const https = require('https')
+const fs = require('fs')
+const express = require('express')
+const app = express()
+const bodyParser = require('body-parser')
 const axios = require('axios')
-const cors = require('cors');
+const cors = require('cors')
+var multer = require('multer')
+const path = require("path")
 
 /*	PRODUCTION	*/
 // var key = fs.readFileSync(__dirname + '/server.key');
@@ -23,7 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 require('./routes/test/emotion')(app)
-require('./routes/emotion/emotion')(app)
+require('./routes/emotion/emotion')(app, multer, path, fs)
 
 app.get('/status', (req, res) => res.send('Working!'));
 
