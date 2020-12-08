@@ -136,3 +136,4 @@ my-key.keystore
 config/firebase.js
 backend/models/fer2013.csv
 backend/models/test2.jpg
+backend/data/*
