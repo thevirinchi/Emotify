@@ -40,6 +40,8 @@ gray=cv2.cvtColor(full_size_image,cv2.COLOR_RGB2GRAY)
 face = cv2.CascadeClassifier('models/haarcascade_frontalface_default.xml')
 faces = face.detectMultiScale(gray, 1.3  , 10)
 
+emot = "no face"
+
 #detecting faces
 for (x, y, w, h) in faces:
         roi_gray = gray[y:y + h, x:x + w]
@@ -51,18 +53,17 @@ for (x, y, w, h) in faces:
         # cv2.putText(full_size_image, labels[int(np.argmax(yhat))], (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 1, cv2.LINE_AA)
         label = labels[int(np.argmax(yhat))]
         if(label == 'Happy'):
-            print('c2')
+            emot = 'c2'
         elif(label == 'Angry'):
-            print('c1')
+            emot = 'c1'
         elif(label == 'Sad'):
-            print('c4')
+            emot =- 'c4'
         elif(label == 'Surprise'):
-            print('c5')
+            emot = 'c5'
         else:
-            print('c3')
-        exit
+            emot = 'c3'
 
-print('no face')
+print (emot)
 
 #cv2.imshow('Emotion', full_size_image)
 #cv2.waitKey()

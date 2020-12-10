@@ -50,7 +50,7 @@ const FaceScan = props => {
 		console.log({catId})
 	}, [catId])
 
-	useEffect(async()=>{
+	const getScan = async()=>{
 		if(scanMode){
 			const hasPermission = await verifyPermissions()
 			if(hasPermission){
@@ -73,10 +73,11 @@ const FaceScan = props => {
 						type: 'image/jpg'
 					})
 					axios({
-						url: 'http://287030a015f7.ngrok.io/emotion',
+						url: 'https://e7ed788f7728.ngrok.io/emotion',
 						method: 'post',
 						data: data,
 					}).then(res => {
+						toggleScanMode(false)
 						dispatch(loadingActions.toggleLoading(false))
 						console.log(res.data)
 						if(res.data.error === true)
@@ -84,12 +85,20 @@ const FaceScan = props => {
 						else
 							setCatId(res.data.emotion)
 					}).catch(err => {
+						toggleScanMode(false)
 						dispatch(loadingActions.toggleLoading(false))
 						Alert.alert("Uh Oh!", "There was an error. [ " + err.message + " ]", [{text: "Okay", style: 'default'}])
 						console.log({err})
 					})
 				}
 			}
+		}
+	}
+
+	useEffect(()=>{
+		getScan()
+		return()=>{
+			console.log("Scanned")
 		}
 	}, [scanMode])
 
@@ -112,12 +121,26 @@ const FaceScan = props => {
 			toggleSuggestionCount(5)
 	}
 
+	const getEmot = () => {
+		if(catId == 'c1')
+			return <Image source={require('../../assets/images/emotes/angry.png')} style={{ marginVertical: Margin.xl }} />
+		else if (catId == 'c2')
+			return <Image source={require('../../assets/images/emotes/grinning.png')} style={{ marginVertical: Margin.xl }} />
+		else if (catId == 'c3')
+			return <Image source={require('../../assets/images/emotes/no-expression.png')} style={{ marginVertical: Margin.xl }} />
+		else if (catId == 'c4')
+			return <Image source={require('../../assets/images/emotes/sad.png')} style={{ marginVertical: Margin.xl }} />
+		else
+			return <Image source={require('../../assets/images/emotes/stars.png')} style={{ marginVertical: Margin.xl }} />
+	}
+
 	return (
 		<ScrollView style={{...styles.root, backgroundColor: category.bgColor}}>
 			<View style={styles.headerContainer}>
 				<Heading lvl={1} text="Emotify" style={{color: category.fgColor}}/>
-				<Display text="Let's keep that smile wide!" containerStyle={{ width: "100%" }}  style={{color: category.fgColor}}/>
-				<Image source={require('../../assets/images/emotes/grinning.png')} style={{ marginVertical: Margin.xl }} />
+				<Display text="Let's keep Listening!" containerStyle={{ width: "100%" }}  style={{color: category.fgColor}}/>
+				{/* <Image source={require('../../assets/images/emotes/grinning.png')} style={{ marginVertical: Margin.xl }} /> */}
+				{getEmot()}
 				<Heading lvl={3} text="Suggestions" containerStyle={{ width: "100%", marginBottom: Margin.m }}  style={{color: category.fgColor}}/>
 				<FlatList numColumns={1} renderItem={renderSuggestionItem} data={data} keyExtractor={item => item.id} width={"100%"} />
 				<TouchableNativeFeedback onPress={suggestionCountHandler} style={{ marginBottom: Margin.l }}>
